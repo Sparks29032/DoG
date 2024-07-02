@@ -1,0 +1,17 @@
+body {
+	background-image: url('../images/background.jpg');
+	background-color: rgba(255, 255, 255, 0.01);
+	color: white;
+	text-shadow: purple 0 0 10px;
+	margin-top: 10px;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+a:link {
+	color: pink;
+}
+
+a:visited {
+	color: hotpink;
+}

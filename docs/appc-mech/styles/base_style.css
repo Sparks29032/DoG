@@ -1,0 +1,21 @@
+body {
+	background-image: url('../images/background.jpg');
+	background-color: rgba(255, 255, 255, 0.01);
+	color: white;
+	text-shadow: MidnightBlue 0 0 5px;
+	margin-top: 10px;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+a:link {
+	color: Aqua;
+}
+
+a:visited {
+	color: MediumAquaMarine;
+}
+
+#my{
+zoom: 100%;
+}

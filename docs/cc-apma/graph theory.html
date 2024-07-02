@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="resources/styles/base_style.css">
+<title>Graph Theory</title>
+</head>
+
+<body>
+
+<button onclick="window.location.href = 'index.html';">Home</button>
+
+<center>
+<h1>
+Graphs Fundamentals
+</h1>
+</center>
+
+<h2>
+Definitions
+</h2>
+<ul>
+<li>A <b>vertex</b> is a point in space.</li>
+<li>We can draw a segment between two vertices <var>u</var> and <var>v</var>, (not necessarily distinct). 
+This segment is called an <b>edge</b>. If <var>u</var> and <var>v</var> are the same, the edge is called a <b>loop</b>. 
+Two edges that both have <var>u</var> and <var>v</var> as endpoints are considered <b>parallel</b>. 
+Two edges sharing only a single endpoint are called <b>adjacent</b>.</li>
+<li>A <b>graph</b> is a collection of vertices and edges. 
+The <b>order</b> of a graph is how many vertices it has. 
+<b>Simple graphs</b> are graphs without loops or parallel edges. 
+Graphs are <b>homeomorphically irreducible</b> when no vertex has two edges. This is because the structure of the graph is not fundamentally changed if we remove vertices with two edges.</li>
+<li>Two vertices on a graph are considered <b>connected</b> if there is a sequence of adjacent edges we can traverse to get from one vertex to the other.
+The sequence of edges we traverse between two vertices is called a <b>path</b>.
+If there is a path between any pair of vertices on a graph, that graph is considered <b>connected</b>.</li>
+<li><b>Cycles</b> are paths from a vertex to itself with at least one edge traversed.</li>
+<li>Graphs without cycles have special names. If they are connected, they are called <b>trees</b>. If they are not connected (disconnected), they are <b>forests</b>.</li>
+<li>Finally, let us define a notion of "equality" for graphs, known as <b>isomorphism</b>. In a hand-wavy sense, graphs are isomorphic if their edges connect vertices in the same way. 
+We can call graphs <b>distinct</b> when they are not isomorphic to each other. 
+The process for determining isomorphisms is a bit complicated:
+<ol>
+  <li>Check if the two graphs have the same amount of vertices. If they do not, they are distinct.</li>
+  <li>Label each vertex in one graph <var>x<sub>1</sub>, x<sub>2</sub>, ...</var>. Then, try to pair each vertex <var>x<sub>i</sub></var> to a unique 
+  vertex from the other graph <var>y<sub>i</sub></var> such that if <var>x<sub>i</sub></var> and <var>x<sub>j</sub></var> have an edge, so do 
+  <var>y<sub>i</sub></var> and <var>y<sub>j</sub></var>. Similarly, if there is no edge between <var>x<sub>i</sub></var> and <var>x<sub>j</sub></var>, 
+  then there is no edge between <var>y<sub>i</sub></var> and <var>y<sub>j</sub></var>. If no such pairing exist, the graphs are distinct.</li>
+  <li>However, if such a pairing can be found, these graphs are isomorphic.</li>
+</ol></li>
+</ul>
+
+<hr>
+
+<h2>
+Good Will Hunting (Pt 1)
+</h2>
+A pop-culture problem involving graph theory comes from <i>Good Will Hunting</i> where Professor Lambeau asks his students to 
+"[d]raw all the [distinct] homeomorphically irreducible trees with [order] 10". Based on our definitions above, we should be able to find all ten.
+
+
+<details>
+<summary>Solution</summary>
+<p></p>
+</details>
+
+<details>
+<summary>Will Hunting's Solution</summary>
+<p>> The scene from the movie:
+<center><img src="resources/images/goodwill-scene.jpg" alt="goodwill-scene.jpg" width=80% height=auto></center></p>
+</details>
+
+Though Professor Lambeau mentions the notorious difficulty of this problem, we can see after our exploration of graph theory that it is not so hard!
+
+<hr>
+
+<h2>
+Adjacency Matrices
+</h2>
+<ul>
+<li>Graphs can get messy, but we can represent their information nicely in a matrix. Given a graph <var>G</var> with <var>V</var> vertices labeled from <var>1</var> to <var>V</var>, 
+the <b>adjacency matrix</b> of the graph is a <var>V&Cross;V</var> matrix <var>A</var> where <var>A<sub>i,j</sub></var> is the number of edges between 
+vertex <var>i</var> and vertex <var>j</var>. Note that an adjacency matrix is always a square symmetric matrix.</li>
+
+<li>Each entry of the adjacency matrix encodes the number of one-edge paths there are between two vertices. 
+Since the adjacency matrix is square, we can take powers of it. For any positive integer <var>n</var>, entries in <var>A<sup>n</sup></var> 
+represent the number of <var>n</var>-edge paths between two vertices. For instance, entry <var>[A<sup>n</sup>]<sub>i,j</sub></var> 
+is the number of paths between vertex <var>i</var> and vertex <var>j</var> involving exactly <var>n</var> edges.</li>
+</ul>
+
+<hr>
+
+<h2>
+Good Will Hunting (Pt 2)
+</h2>
+Revisiting <i>Good Will Hunting</i>, the professor earlier asked his class to find the adjacency matrix of the following graph.
+<center><img src="resources/images/goodwill-graph.png" alt="goodwill-graph.png" width=40% height=auto></center>
+Additionally, he wanted them to find the matrix giving the number of <var>3</var>-step walks (paths involving three edges).
+
+<details>
+<summary>Adjacency matrix solution</summary>
+<p></p>
+</details>
+
+<details>
+<summary>3-step walks solution</summary>
+<p></p>
+</details>
+
+<hr>
+
+<h2>
+Bridges of Königsberg
+</h2>
+The mathmatician Euler puzzled over the Prussian city of Königsberg, wondering how one could cross each of the seven bridges (on the map below) exactly once.
+<center><img src="resources/images/konigsberg-map.png" alt="konigsberg-map.png" width=80% height=auto></center>
+Can you find a way to do so?
+
+<details>
+<summary>Solution</summary>
+<p>> Sorry, it's impossible! However, during WWII, the city was bombed, causing two of the bridges to be destroyed. 
+Now, Königsberg has been renamed Kaliningrad. A recent map of Kaliningrad (rendered in 2023) is below. 
+<center><img src="resources/images/kaliningrad-map.png" alt="kaliningrad-map.png" width=80% height=auto></center>
+Now another question: can you cross these remaining five bridges exactly once?</p>
+<details>
+<summary>Solution</summary>
+<p>> Here's how you could cross these five bridges on your next vacation:
+<center><img src="resources/images/kaliningrad-solution.png" alt="kaliningrad-solution.png" width=80% height=auto></center></p>
+</details>
+</details>
+
+<hr>
+
+<h2>
+Special Paths
+</h2>
+There are four particularly special types of paths.
+<ul>
+<li>An <b>Eulerian path</b> is a path that uses every edge in a graph exactly once.</li>
+<li>Similarly, an <b>Eulerian cycle</b> is a cycle that uses every edge in a graph exactly once.</li>
+<li>A path where each vertex on the graph is an endpoint to exactly two edges is called a <b>Hamiltonian cycle</b>.</li>
+<li>Instead, a <b>Hamiltonian path</b> has two vertices as endpoints to exactly one edge while all the rest are endpoints to two.</li>
+</ul>
+In both Eulerian paths and cycles, all edges of a graph are included in the path. 
+In both Hamiltonian paths and cycles, all vertices are endpoints of edges on the path.
+
+<hr>
+
+<h2>
+Challenge: Finding Special Paths (Pt 1)
+</h2>
+Try to find rules for when a graph has one of these special paths.
+
+<details>
+<summary>Hint for Eulerian</summary>
+<p></p>
+</details>
+
+<details>
+<summary>Hint for Hamiltonian</summary>
+<p></p>
+</details>
+
+<details>
+<summary>Solution for Eulerian</summary>
+<p></p>
+</details>
+
+<details>
+<summary>Solution for Hamiltonian</summary>
+<p></p>
+</details>
+
+<hr>
+
+<h2>
+Directed Graphs
+</h2>
+<ul>
+<li>So far, the graphs we have talked about are <b>undirected</b>, meaning if an edge exists between vertex <var>i</var> and <var>j</var>, we can travel from 
+<var>i</var> to <var>j</var> and vice-versa. However, on a <b>directed graph</b>, edges specify a single direction of travel. For instance, we can 
+now have an edge pointing from <var>i</var> to <var>j</var>, indicating we can travel from <var>i</var> to <var>j</var>, but not the other way around.</li>
+<li>Adjacency matrices for directed graphs may no longer be symmetric. Now, the <var>i,j</var>-th entry of an adjacency matrix is the number of 
+edges that point from <var>i</var> to <var>j</var> specifically.</li>
+</ul>
+
+<hr>
+
+<h2>
+Challenge: Finding Special Paths (Pt 2)
+</h2>
+Try to come up with a rule for when Eulerian and Hamiltonian paths/cycles exist on a directed graph. 
+These may be similar to the rules you have come up with earlier.
+
+<details>
+<summary>Solution for Eulerian</summary>
+<p></p>
+</details>
+
+<details>
+<summary>Solution for Hamiltonian</summary>
+<p></p>
+</details>
+
+<hr>
+
+</body>
+
+</html>
