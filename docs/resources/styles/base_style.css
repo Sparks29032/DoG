@@ -1,7 +1,7 @@
 body {
 	background-image: url('../images/background.jpg');
 	background-color: rgba(255, 255, 255, 0.01);
-	background-repeat: no-repeat;
+	background-repeat: repeat-y;
 	background-size: 100%;
 	color: white;
 	text-shadow: MidnightBlue 0 0 5px;
