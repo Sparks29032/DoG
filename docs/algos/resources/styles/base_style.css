@@ -4,18 +4,18 @@ body {
 	background-repeat: repeat-y;
 	background-size: 100%;
 	color: white;
-	text-shadow: MidnightBlue 0 0 5px;
+	text-shadow: Cornsilk 0 0 5px;
 	margin-top: 10px;
 	margin-left: 150px;
 	margin-right: 150px;
 }
 
 a:link {
-	color: Aqua;
+	color: Crimson;
 }
 
 a:visited {
-	color: MediumAquaMarine;
+	color: Coral;
 }
 
 #my{
