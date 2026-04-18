@@ -1,0 +1,1 @@
+pdftoppm -png <input_stem.input_ext> <output_stem>
